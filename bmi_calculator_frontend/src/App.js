@@ -1,30 +1,45 @@
-import React, { useState, useEffect } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import logo from "./logo.svg";
+import BackgroundSlider from "./components/BackgroundSlider";
+import "./App.css";
 
 // PUBLIC_INTERFACE
 function App() {
-  const [theme, setTheme] = useState('light');
+  const [theme, setTheme] = useState("light");
 
   // Effect to apply theme to document element
   useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme);
+    document.documentElement.setAttribute("data-theme", theme);
   }, [theme]);
 
   // PUBLIC_INTERFACE
   const toggleTheme = () => {
-    setTheme(prevTheme => prevTheme === 'light' ? 'dark' : 'light');
+    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
   };
 
   return (
     <div className="App">
+      {/* Background carousel layer */}
+      <BackgroundSlider
+        slides={[
+          {
+            // Public asset copied from the provided attachment
+            src: "/assets/slider-1.png",
+            alt: "BMI calculator background",
+          },
+        ]}
+        intervalMs={8000}
+        showControls={false}
+        showIndicators={false}
+      />
+
       <header className="App-header">
-        <button 
-          className="theme-toggle" 
+        <button
+          className="theme-toggle"
           onClick={toggleTheme}
-          aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
+          aria-label={`Switch to ${theme === "light" ? "dark" : "light"} mode`}
         >
-          {theme === 'light' ? '🌙 Dark' : '☀️ Light'}
+          {theme === "light" ? "🌙 Dark" : "☀️ Light"}
         </button>
         <img src={logo} className="App-logo" alt="logo" />
         <p>

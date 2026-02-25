@@ -23,10 +23,103 @@
 
 .App {
   text-align: center;
+  /* Keep a fallback color behind the slider */
   background-color: var(--bg-primary);
   color: var(--text-primary);
   min-height: 100vh;
   transition: background-color 0.3s ease, color 0.3s ease;
+
+  /* Needed so the absolute-positioned background slider is scoped to the app */
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background slider layer (full-viewport behind content) */
+.bg-slider {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+}
+
+.bg-slider__viewport {
+  position: absolute;
+  inset: 0;
+}
+
+.bg-slider__slide {
+  position: absolute;
+  inset: 0;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  opacity: 0;
+  transition: opacity 600ms ease;
+}
+
+.bg-slider__slide.is-active {
+  opacity: 1;
+}
+
+/* Optional controls/indicators support (disabled by default in App.js) */
+.bg-slider__controls {
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none;
+}
+
+.bg-slider__control {
+  pointer-events: auto;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(0, 0, 0, 0.35);
+  color: #fff;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+}
+
+.bg-slider__control:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.bg-slider__indicators {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 14px;
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+.bg-slider__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.15);
+  cursor: pointer;
+}
+
+.bg-slider__dot.is-active {
+  background: rgba(255, 255, 255, 0.9);
+}
+
+/* Ensure content sits above the background */
+.App-header {
+  position: relative;
+  z-index: 1;
 }
 
 .App-logo {
