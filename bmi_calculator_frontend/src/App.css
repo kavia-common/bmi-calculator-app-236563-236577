@@ -41,7 +41,10 @@
 }
 
 .App-header {
-  background-color: var(--bg-secondary);
+  /* Translucent surface so the background image remains visible */
+  background-color: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(6px);
+
   min-height: 100vh;
   display: flex;
   flex-direction: column;
