@@ -116,7 +116,12 @@
   background: rgba(255, 255, 255, 0.9);
 }
 
-/* Ensure content sits above the background */
+/* Slider-only mode: explicitly hide any template header content if present */
+.App--sliderOnly .App-header {
+  display: none;
+}
+
+/* (Legacy template styles retained below for future use; harmless when not rendered) */
 .App-header {
   position: relative;
   z-index: 1;
