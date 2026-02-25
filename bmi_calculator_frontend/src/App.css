@@ -39,20 +39,39 @@
   position: fixed;
   inset: 0;
   z-index: 0;
+
+  /* Ensure the slider always spans the viewport across browsers */
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh; /* dynamic viewport height for mobile address bar behavior */
 }
 
 .bg-slider__viewport {
   position: absolute;
   inset: 0;
+  width: 100%;
+  height: 100%;
 }
 
+/*
+  Slides are implemented as background-images (not <img/>), so we use
+  background-size/background-position to control responsive behavior.
+
+  - cover: fills the viewport while keeping aspect ratio (cropping if needed)
+  - center: keeps the focal point centered
+*/
 .bg-slider__slide {
   position: absolute;
   inset: 0;
+  width: 100%;
+  height: 100%;
 
   background-size: cover;
-  background-position: center;
+  background-position: center center;
   background-repeat: no-repeat;
+
+  /* Helps reduce edge flicker on some GPUs during opacity transitions */
+  will-change: opacity;
 
   opacity: 0;
   transition: opacity 600ms ease;
