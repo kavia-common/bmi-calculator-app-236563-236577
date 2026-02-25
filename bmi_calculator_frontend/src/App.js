@@ -20,6 +20,14 @@ function App() {
           { src: "/assets/slider-9.png", alt: "BMI calculator background 9" },
           { src: "/assets/slider-10.png", alt: "BMI calculator background 10" },
           { src: "/assets/slider-11.png", alt: "BMI calculator background 11" },
+          { src: "/assets/slider-12.png", alt: "BMI calculator background 12" },
+          { src: "/assets/slider-13.png", alt: "BMI calculator background 13" },
+          { src: "/assets/slider-14.png", alt: "BMI calculator background 14" },
+          { src: "/assets/slider-15.png", alt: "BMI calculator background 15" },
+          { src: "/assets/slider-16.png", alt: "BMI calculator background 16" },
+          { src: "/assets/slider-17.png", alt: "BMI calculator background 17" },
+          { src: "/assets/slider-18.png", alt: "BMI calculator background 18" },
+          { src: "/assets/slider-19.png", alt: "BMI calculator background 19" },
         ]}
         intervalMs={8000}
         showControls={true}
