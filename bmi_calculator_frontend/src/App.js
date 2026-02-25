@@ -23,9 +23,20 @@ function App() {
       <BackgroundSlider
         slides={[
           {
-            // Public asset copied from the provided attachment
             src: "/assets/slider-1.png",
-            alt: "BMI calculator background",
+            alt: "BMI calculator background 1",
+          },
+          {
+            src: "/assets/slider-2.png",
+            alt: "BMI calculator background 2",
+          },
+          {
+            src: "/assets/slider-3.png",
+            alt: "BMI calculator background 3",
+          },
+          {
+            src: "/assets/slider-4.png",
+            alt: "BMI calculator background 4",
           },
         ]}
         intervalMs={8000}
