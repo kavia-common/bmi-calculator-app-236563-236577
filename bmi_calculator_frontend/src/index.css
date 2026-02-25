@@ -14,8 +14,6 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
 
-  /* Readability overlay (tunable via CSS variable) */
-  position: relative;
   color: #ffffff;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
@@ -23,24 +21,18 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  /* Sensible default: dark overlay to increase text contrast */
-  --page-overlay: rgba(0, 0, 0, 0.55);
+  /* Overlay disabled */
+  --page-overlay: rgba(0, 0, 0, 0);
 }
 
-/* Overlay layer */
+/* Overlay layer (disabled) */
 body::before {
   content: "";
-  position: fixed;
-  inset: 0;
-  background: var(--page-overlay);
-  pointer-events: none;
-  z-index: 0;
+  display: none;
 }
 
-/* Ensure React root renders above the overlay */
+/* Ensure React root spans full viewport height */
 #root {
-  position: relative;
-  z-index: 1;
   min-height: 100vh;
 }
 
