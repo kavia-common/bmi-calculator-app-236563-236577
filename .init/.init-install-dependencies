@@ -1,0 +1,4 @@
+{
+    "command": "npm install",
+    "working_directory": "/tmp/kavia/workspace/code-generation/bmi-calculator-app-236563-236577/bmi_calculator_frontend"
+}
